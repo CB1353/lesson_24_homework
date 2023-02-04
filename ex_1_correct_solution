@@ -3,11 +3,11 @@ import requests
 
 def get_all_languages():
     return 'en', 'de', 'fr', 'it', 'es'
-
-
+    my_dict = {to_language: url, text: q}
+    
 def translate(text, to_language):
     my_api_key = ""
-    url = f'https://google-translate1.p.rapidapi.com/language/translate/v2 = {to_language} & q = {text}'
+    url = f'https://google-translate1.p.rapidapi.com/language/translate'
     headers = {
         "X-RapidAPI-Key": my_api_key,
         "X-RapidAPI-Host": ""

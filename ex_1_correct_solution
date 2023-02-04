@@ -1,0 +1,23 @@
+import requests
+
+
+def get_all_languages():
+    return 'en', 'de', 'fr', 'it', 'es'
+
+
+def translate(text, to_language):
+    my_api_key = ""
+    url = f'https://google-translate1.p.rapidapi.com/language/translate/v2 = {to_language} & q = {text}'
+    headers = {
+        "X-RapidAPI-Key": my_api_key,
+        "X-RapidAPI-Host": ""
+    }
+    response = requests.get(url, headers=headers)
+    response_json = response.json()
+    return response_json['data']['translations'][0]['translatedText']
+
+
+def translate_file(path, to_language):
+    with open(path, 'r') as file:
+        text = file.read()
+    return translate(text, to_language)
